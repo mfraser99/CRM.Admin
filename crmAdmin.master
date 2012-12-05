@@ -7,7 +7,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
     <link href="css/crm.css" rel="stylesheet" type="text/css" />
-    <script src="js/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="js/jquery-1.8.3.js" type="text/javascript"></script>
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
     <script src="js/crm.js" type="text/javascript"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -23,7 +23,7 @@
                 </h1>
             </div>
             <div id="topbar-right" class="pull-right">
-                <img src="img/logo.png" class="pull-right" />
+                <img src="css/images/logo.png" class="pull-right" />
             </div>
             <hr style="clear: both;" />
             <asp:ContentPlaceHolder ID="contentPH" runat="server">
