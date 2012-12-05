@@ -4,10 +4,25 @@
     padding-top: 10px;
     padding-bottom: 10px;
 }
+#subBar-right
+{
+    margin-top: 10px;
+}
 #contentPH_valSummary
 {
-    margin-top:10px;
-    }
+    margin-top: 10px;
+    width: 355px;
+}
+#details th
+{
+    width: 10%;
+    text-align: right;
+    background-color: #F9F9F9;
+}
+.label
+{
+    font-size: inherit;
+}
 body
 {
 }

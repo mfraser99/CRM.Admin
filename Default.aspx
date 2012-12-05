@@ -14,6 +14,7 @@
             Display="None"></asp:RegularExpressionValidator>
         <asp:Button ID="btnGo" runat="server" Text="Search" CssClass="btn btn-primary"
             ValidationGroup="Search" OnClick="btnGo_Click" />
+        
         <asp:ValidationSummary ID="valSummary" runat="server" CssClass="alert alert-error"
             DisplayMode="List" ValidationGroup="Search" />
     </div>
