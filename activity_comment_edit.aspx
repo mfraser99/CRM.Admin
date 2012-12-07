@@ -18,20 +18,21 @@
         </UpdateParameters>
     </asp:SqlDataSource>
     <asp:FormView ID="frmActivityComment" runat="server" DataSourceID="dsActivityComment"
-        DefaultMode="Edit" OnItemUpdated="frmActivityComment_Updated">
+        DefaultMode="Edit" OnItemUpdated="frmActivityComment_Updated" >
         <EditItemTemplate>
             <h3>
-                Change activity comment</h3>
+                Activity comment</h3>
             <div class="well span12">
                 <h4>
                     Date</h4>
                 <asp:TextBox ID="txtDateCreated" runat="server" ClientIDMode="Static" CssClass="span2"
                     Text='<%# Bind("time_created", "{0:dd-MMM-y}")%>' onpaste="return false;" onkeypress="return isAnyKey(event)"
-                    AutoPostBack="False"></asp:TextBox>
+                    AutoPostBack="False" ValidationGroup="Add" ReadOnly="False"></asp:TextBox>
+                    <div id="Cal"></div>
                 <asp:RequiredFieldValidator ID="reqDate" runat="server" ErrorMessage="Please select a date"
-                    ValidationGroup="Add" ControlToValidate="txtDateCreated" Display="None"></asp:RequiredFieldValidator><br />
+                    ValidationGroup="Add" ControlToValidate="txtDateCreated" ></asp:RequiredFieldValidator><br />
                 <asp:Button ID="btnSave" runat="server" Text="Save change" CssClass="btn btn-success"
-                    CommandName="Update" />
+                    CommandName="Update" ValidationGroup="Add" />
             </div>
         </EditItemTemplate>
         <EmptyDataTemplate>
@@ -39,8 +40,8 @@
                 <strong>Hmm... </strong>I can't find that comment.</p>
         </EmptyDataTemplate>
     </asp:FormView>
-    <script>
-        $("#txtDateCreated").datepicker({ dateFormat: 'dd-M-y' });
+    <script type="text/javascript">
+  $("#txtDateCreated").datepicker({ dateFormat: 'dd-M-y' });
 
         function isAnyKey(evt) {
             var charCode = (evt.which) ? evt.which : event.keyCode
