@@ -5,17 +5,18 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contentPH" runat="Server">
     <asp:SqlDataSource ID="dsCaseDetails" runat="server" ProviderName="<%$ ConnectionStrings:crmCS.ProviderName %>"
-        ConnectionString="<%$ ConnectionStrings:crmCS %>" SelectCommand="SELECT * FROM webgui_case_details WHERE REF_NO = :cid">
+        ConnectionString="<%$ ConnectionStrings:crmCS %>" SelectCommand="SELECT * FROM webgui_case_details WHERE REF_NO = :cid" >
         <SelectParameters>
             <asp:QueryStringParameter Name="cid" Type="String" QueryStringField="cid" />
         </SelectParameters>
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="dsCaseActivities" runat="server" ProviderName="<%$ ConnectionStrings:crmCS.ProviderName %>"
-        ConnectionString="<%$ ConnectionStrings:crmCS %>" SelectCommand="SELECT * FROM webgui_case_activities WHERE REF_NO = :cid">
+        ConnectionString="<%$ ConnectionStrings:crmCS %>" SelectCommand="SELECT * FROM webgui_case_activities WHERE REF_NO = :cid" OnSelected="dsCaseDetails_Selected">
         <SelectParameters>
             <asp:QueryStringParameter Name="cid" Type="String" QueryStringField="cid" />
         </SelectParameters>
     </asp:SqlDataSource>
+    <asp:Label ID="lblError" runat="server" Text="[Error]" CssClass="alert alert-error" Visible="False"></asp:Label>
     <asp:FormView ID="frmCaseDetails" runat="server" DataSourceID="dsCaseDetails" DataKeyNames="ID"
         OnDataBound="frmCaseDetails_Bound">
         <EmptyDataTemplate>
